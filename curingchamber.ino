@@ -6,8 +6,7 @@ Adjust the write function to register the set values for temperature and humidit
 Function to write logs (reboot, errors, etc)
 Function to parse parameters from SDCard (https://forum.arduino.cc/index.php?topic=210904.0)
 Solve problem of seconds not being sent properly when calling functions
-Adjust the error message onto the debugSDcard function
-Publish the code on GitHub
+Adjust the error message onto the debugSDcard functions
 
 */
 
