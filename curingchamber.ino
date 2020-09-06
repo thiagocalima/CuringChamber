@@ -173,6 +173,11 @@ void writeDataToSD(String message, String fileName) {
 
 
 void setupPinMode() {
+  digitalWrite(Device1, HIGH);
+  digitalWrite(Device1, HIGH);
+  digitalWrite(Device1, HIGH);
+  digitalWrite(Device1, HIGH);
+  
   pinMode(Device1, OUTPUT);
   pinMode(Device2, OUTPUT);
   pinMode(Device3, OUTPUT);
