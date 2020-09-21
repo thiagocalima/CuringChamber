@@ -17,28 +17,26 @@ Adjust the error message onto the debugSDcard functions
 #include <SD.h>
 #include <DHT.h>
 
-#define DHTPIN1 A1
-#define DHTPIN2 A2
+#define DHTPIN1 A0
+#define DHTPIN2 A1
 #define DHTTYPE DHT11
-#define SDCSPin 53
+#define SDCSPin 10
 
 DHT sensor1(DHTPIN1, DHTTYPE);
 DHT sensor2(DHTPIN2, DHTTYPE);
 
 RTC_DS1307 rtc;
 
-const int Device1 = 6;
-const int Device2 = 7;
-const int Device3 = 8;
-const int Device4 = 9;
-
-const int Pot = A15;
+const int Device1 = 2;
+const int Device2 = 3;
+const int Device3 = 4;
+const int Device4 = 5;
 
 int sampleRate = 1000;
 unsigned long timer = 0;
 
-float minTemperature = 14.0;
-float maxTemperature = 15.0;
+float minTemperature = 13.0;
+float maxTemperature = 14.0;
 
 float minHumidity = 80.0;
 float maxHumidity = 90.0;
@@ -183,7 +181,6 @@ void setupPinMode() {
   pinMode(Device3, OUTPUT);
   pinMode(Device4, OUTPUT);
   
-  pinMode(Pot, INPUT);
 }
 
 
@@ -334,8 +331,6 @@ void setup() {
 void loop() {
   DateTime now = rtc.now();
 
-  //float correction = map(analogRead(Pot),0,1023,2100,2500);
-
   if ((unsigned long)(millis() - timer) > sampleRate) {
     timer = millis();  
 
@@ -343,9 +338,6 @@ void loop() {
     float humidity2 = sensor2.readHumidity();
     float temperature1 = sensor1.readTemperature();
     float temperature2 = sensor2.readTemperature();
-
-    //float temperature1 = correction/100.0;
-    //float temperature2 = correction/100.0;
     
   
     // Throw error message if measurements of temperature or humidity are not valid
